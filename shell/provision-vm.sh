@@ -30,13 +30,19 @@ set -x
 set -e
 
 REGION=eu-de
-RESOURCE_GROUP=martin-nfs-test
+RESOURCE_GROUP=martin-test-nfs
+
 # VPC_NAME=kombit-test-vpc
-VPC_NAME=vpc-prod-platform
+# VPC_NAME=vpc-prod-platform
 # VPC_ID=r010-149a7a52-10e8-4234-a6ee-5fa0ef6c5b43
-VPC_ID=r010-6d95af1c-c797-4b9d-8438-c0768ced2776
+# VPC_ID=r010-6d95af1c-c797-4b9d-8438-c0768ced2776
 # SUBNET_ID=02b7-3aac82ff-e913-4ec9-b9f6-0b3efbf80206
-SUBNET_ID=02b7-9cf65574-785f-4d15-bb54-0046db7722af
+# SUBNET_ID=02b7-9cf65574-785f-4d15-bb54-0046db7722af
+
+VPC_NAME=martin-test-nfs-vpc
+VPC_ID=r010-a5d24308-8f45-4ea5-8f81-3cbaee1d36ac
+SUBNET_ID=02b7-3b930fa8-2919-409e-b701-d7b612444119
+
 # https://cloud.ibm.com/vpc-ext/compute/sshKeys
 SSH_KEY_ID=r010-6543cd88-ff7c-4ccd-bd76-b603c19ed130
 # ibmcloud is zones
@@ -70,7 +76,7 @@ $SUBNET_ID --image-id $IMAGE_NAME --key-ids $SSH_KEY_ID
 ibmcloud is instance $VM_INSTANCE_NAME
 
 # ibmcloud is floating-ip-reserve nfs-test-floatingip --nic $NIC
-ibmcloud is floating-ip-reserve nfs-test1-floatingip --nic 02b7-540a63b8-1106-45c2-bfa9-40a0ffd3cbb4
+#ibmcloud is floating-ip-reserve nfs-test1-floatingip --nic 02b7-540a63b8-1106-45c2-bfa9-40a0ffd3cbb4
 
 # connect to the VM
 # ssh -i $HOME/.ssh/id_rsa root@$address
